@@ -12,17 +12,17 @@
     "deploy": "surge --domain vivacious-trains.surge.sh dist"
   },
   "devDependencies": {
-    "@open-wc/building-rollup": "^1.5.0",
-    "@open-wc/eslint-config": "^2.0.6",
+    "@open-wc/building-rollup": "^1.7.0",
+    "@open-wc/eslint-config": "^3.0.0",
     "deepmerge": "^4.2.2",
-    "es-dev-server": "^1.57.1",
-    "eslint": "^7.6.0",
+    "es-dev-server": "^1.57.2",
+    "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
-    "rollup": "^2.23.0"
+    "rollup": "^2.26.3"
   },
   "eslintConfig": {
     "extends": [
