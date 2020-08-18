@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-import { openWcLogo } from './open-wc-logo.js';
 
 export class AmenityFinder extends LitElement {
   static get properties() {
@@ -56,7 +55,6 @@ export class AmenityFinder extends LitElement {
   render() {
     return html`
       <main>
-        <div class="logo">${openWcLogo}</div>
         <h1>My app</h1>
 
         <p>Edit <code>src/AmenityFinder.js</code> and save to reload.</p>
@@ -82,3 +80,5 @@ export class AmenityFinder extends LitElement {
     `;
   }
 }
+
+customElements.define('amenity-finder', AmenityFinder);
