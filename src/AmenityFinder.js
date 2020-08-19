@@ -16,7 +16,8 @@ export class AmenityFinder extends LitElement {
 
   render() {
     return html`
-      <mwc-drawer>
+      <mwc-drawer hasHeader>
+        <span slot="title">Navigation</span>
         <mwc-list>
           <mwc-list-item>Home</mwc-list-item>
           <mwc-list-item>Search</mwc-list-item>
