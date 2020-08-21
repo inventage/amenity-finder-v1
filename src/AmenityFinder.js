@@ -6,6 +6,11 @@ import '@material/mwc-icon-button';
 import '@material/mwc-list/mwc-list.js';
 import '@material/mwc-list/mwc-list-item.js';
 
+import './views/AboutView.js';
+import './views/HomeView.js';
+import './views/ResultsView.js';
+import './views/SearchView.js';
+
 export class AmenityFinder extends LitElement {
   static get properties() {
     return {
