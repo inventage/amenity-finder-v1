@@ -10,6 +10,7 @@ export class AmenityFinder extends LitElement {
   static get properties() {
     return {
       showSidebar: { type: Boolean },
+      currentView: { type: String },
     };
   }
 
