@@ -7,12 +7,25 @@ import '@material/mwc-list/mwc-list.js';
 import '@material/mwc-list/mwc-list-item.js';
 
 export class AmenityFinder extends LitElement {
+  static get properties() {
+    return {
+      showSidebar: {
+        type: Boolean,
+      },
+    };
+  }
+
   static get styles() {
     return css`
       :host {
         min-height: 100vh;
       }
     `;
+  }
+
+  constructor() {
+    super();
+    this.showSidebar = false;
   }
 
   render() {
