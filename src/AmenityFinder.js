@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 
 import '@material/mwc-drawer';
 import '@material/mwc-top-app-bar';
+import '@material/mwc-icon-button';
 import '@material/mwc-list/mwc-list.js';
 import '@material/mwc-list/mwc-list-item.js';
 
