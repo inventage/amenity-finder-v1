@@ -48,10 +48,10 @@ export class AmenityFinder extends LitElement {
       >
         <span slot="title">Navigation</span>
         <mwc-list>
-          <mwc-list-item>Home</mwc-list-item>
-          <mwc-list-item>Search</mwc-list-item>
-          <mwc-list-item>Results</mwc-list-item>
-          <mwc-list-item>About</mwc-list-item>
+          <mwc-list-item @click="${() => this._navigateToUrl('/')}">Home</mwc-list-item>
+          <mwc-list-item @click="${() => this._navigateToUrl('/search')}">Search</mwc-list-item>
+          <mwc-list-item @click="${() => this._navigateToUrl('/results')}">Results</mwc-list-item>
+          <mwc-list-item @click="${() => this._navigateToUrl('/about')}">About</mwc-list-item>
         </mwc-list>
         <div slot="appContent">
           <mwc-top-app-bar>
