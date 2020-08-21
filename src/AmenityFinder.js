@@ -25,6 +25,10 @@ export class AmenityFinder extends LitElement {
       :host {
         min-height: 100vh;
       }
+
+      main {
+        padding: var(--amenity-container-padding, 1rem);
+      }
     `;
   }
 
