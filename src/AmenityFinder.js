@@ -63,6 +63,21 @@ export class AmenityFinder extends LitElement {
       </mwc-drawer>
     `;
   }
+
+  _renderCurrentView() {
+    switch (this.currentView) {
+      case 'home':
+        return html`<home-view></home-view>`;
+      case 'search':
+        return html`<search-view></search-view>`;
+      case 'results':
+        return html`<search-view></search-view>`;
+      case 'about':
+        return html`<search-view></search-view>`;
+      default:
+        return ``;
+    }
+  }
 }
 
 customElements.define('amenity-finder', AmenityFinder);
