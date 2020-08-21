@@ -30,7 +30,7 @@ export class AmenityFinder extends LitElement {
 
   render() {
     return html`
-      <mwc-drawer hasHeader>
+      <mwc-drawer hasHeader type="modal" .open="${this.showSidebar}">
         <span slot="title">Navigation</span>
         <mwc-list>
           <mwc-list-item>Home</mwc-list-item>
