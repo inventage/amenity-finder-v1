@@ -56,9 +56,9 @@ export class AmenityFinder extends LitElement {
             ></mwc-icon-button>
             <div slot="title">Title</div>
           </mwc-top-app-bar>
-          <div>
-            <p>Main Content!</p>
-          </div>
+          <main>
+            ${this._renderCurrentView()}
+          </main>
         </div>
       </mwc-drawer>
     `;
