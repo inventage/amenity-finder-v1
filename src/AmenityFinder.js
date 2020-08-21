@@ -25,6 +25,7 @@ export class AmenityFinder extends LitElement {
   constructor() {
     super();
     this.showSidebar = false;
+    this.currentView = 'home';
   }
 
   render() {
