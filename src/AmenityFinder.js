@@ -43,6 +43,9 @@ export class AmenityFinder extends LitElement {
             <mwc-icon-button
               icon="menu"
               slot="navigationIcon"
+              @click="${() => {
+                this.showSidebar = !this.showSidebar;
+              }}"
             ></mwc-icon-button>
             <div slot="title">Title</div>
           </mwc-top-app-bar>
