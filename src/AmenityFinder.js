@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import page from 'page';
 
 import '@material/mwc-drawer';
 import '@material/mwc-top-app-bar';
@@ -82,6 +83,22 @@ export class AmenityFinder extends LitElement {
       default:
         return ``;
     }
+  }
+
+  _initializeRoutes() {
+    page('/', () => {
+      this.currentView = 'home';
+    });
+    page('/about', () => {
+      this.currentView = 'about';
+    });
+    page('/results', () => {
+      this.currentView = 'results';
+    });
+    page('/search', () => {
+      this.currentView = 'search';
+    });
+    page();
   }
 }
 
