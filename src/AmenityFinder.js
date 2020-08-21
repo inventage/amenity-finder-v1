@@ -9,9 +9,7 @@ import '@material/mwc-list/mwc-list-item.js';
 export class AmenityFinder extends LitElement {
   static get properties() {
     return {
-      showSidebar: {
-        type: Boolean,
-      },
+      showSidebar: { type: Boolean },
     };
   }
 
