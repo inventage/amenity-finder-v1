@@ -38,14 +38,7 @@ export class AmenityFinder extends LitElement {
 
   render() {
     return html`
-      <mwc-drawer
-        hasHeader
-        type="modal"
-        .open="${this.showSidebar}"
-        @MDCDrawer:closed="${() => {
-          this.showSidebar = false;
-        }}"
-      >
+      <mwc-drawer hasHeader type="modal" .open="${this.showSidebar}" @MDCDrawer:closed="${this._closeSidebar}">
         <span slot="title">Navigation</span>
         <mwc-list>
           <mwc-list-item @click="${() => this._navigateToUrl('/')}">Home</mwc-list-item>
@@ -103,9 +96,13 @@ export class AmenityFinder extends LitElement {
     page();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   _navigateToUrl(url) {
     page(url);
+    this._closeSidebar();
+  }
+
+  _closeSidebar() {
+    this.showSidebar = false;
   }
 }
 
