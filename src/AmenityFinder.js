@@ -79,9 +79,9 @@ export class AmenityFinder extends LitElement {
       case 'search':
         return html`<search-view></search-view>`;
       case 'results':
-        return html`<search-view></search-view>`;
+        return html`<results-view></results-view>`;
       case 'about':
-        return html`<search-view></search-view>`;
+        return html`<about-view></about-view>`;
       default:
         return ``;
     }
