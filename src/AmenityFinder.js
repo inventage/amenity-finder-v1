@@ -27,6 +27,10 @@ export class AmenityFinder extends LitElement {
         </mwc-list>
         <div slot="appContent">
           <mwc-top-app-bar>
+            <mwc-icon-button
+              icon="menu"
+              slot="navigationIcon"
+            ></mwc-icon-button>
             <div slot="title">Title</div>
           </mwc-top-app-bar>
           <div>
