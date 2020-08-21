@@ -32,6 +32,8 @@ export class AmenityFinder extends LitElement {
     super();
     this.showSidebar = false;
     this.currentView = 'home';
+
+    this._initializeRoutes();
   }
 
   render() {
@@ -99,6 +101,11 @@ export class AmenityFinder extends LitElement {
       this.currentView = 'search';
     });
     page();
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _navigateToUrl(url) {
+    page(url);
   }
 }
 
