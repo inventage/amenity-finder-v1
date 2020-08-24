@@ -28,7 +28,10 @@
     "extends": [
       "@open-wc/eslint-config",
       "eslint-config-prettier"
-    ]
+    ],
+    "rules": {
+      "no-return-assign": "off"
+    }
   },
   "prettier": {
     "singleQuote": true,
