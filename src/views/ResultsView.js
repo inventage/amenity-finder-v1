@@ -65,12 +65,14 @@ export class ResultsView extends LitElement {
   async _fetchResults() {
     try {
       const results = await this.api.getNodeByLatLng(this.latitude, this.longitude, this.radius);
-      this.results = results.map(result => {
-        return {
-          ...result,
-          distance: distanceBetween([this.latitude, this.longitude], [result.lat, result.lon]),
-        };
-      });
+      this.results = results
+        .map(result => {
+          return {
+            ...result,
+            distance: distanceBetween([this.latitude, this.longitude], [result.lat, result.lon]),
+          };
+        })
+        .sort((a, b) => a.distance - b.distance);
     } catch (err) {
       console.error(err);
     }
