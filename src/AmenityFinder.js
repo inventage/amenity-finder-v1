@@ -122,6 +122,14 @@ export class AmenityFinder extends LitElement {
 
       page.redirect('/search');
     });
+    page('/results', () => {
+      if (this.alreadySearched) {
+        page.redirect(`/results/${this.latitude}/${this.longitude}/${this.radius}`);
+        return;
+      }
+
+      page.redirect('/search');
+    });
     page('/results/:lat/:lon/:radius', ctx => {
       this._setSearchParametersFromRouteContext(ctx);
       this.currentView = 'results';
