@@ -2,6 +2,7 @@ import { html, LitElement } from 'lit-element';
 
 import '@material/mwc-button';
 import '@material/mwc-textfield';
+import '@inventage/leaflet-map/dist/leaflet-map.js';
 
 export class SearchView extends LitElement {
   static get properties() {
@@ -23,11 +24,7 @@ export class SearchView extends LitElement {
       <mwc-button outlined label="Locate Me" icon="my_location"></mwc-button>
       <mwc-button raised label="Search"></mwc-button>
 
-      <p>
-        Latitude: ${this.latitude}<br />
-        Longitude: ${this.longitude}<br />
-        Radius: ${this.radius}
-      </p>
+      <leaflet-map .latitude="${this.latitude}" .longitude="${this.longitude}" .radius="${this.radius}"></leaflet-map>
     `;
   }
 }
