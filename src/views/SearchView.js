@@ -4,6 +4,8 @@ import '@material/mwc-button';
 import '@material/mwc-textfield';
 import '@inventage/leaflet-map/dist/leaflet-map.js';
 
+import { canGeolocate, detectUserLocation } from '../utils/geolocation.js';
+
 export class SearchView extends LitElement {
   static get properties() {
     return {
