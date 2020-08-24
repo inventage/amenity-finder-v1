@@ -8,6 +8,7 @@ export class ResultsView extends LitElement {
       latitude: { type: String },
       longitude: { type: String },
       radius: { type: Number },
+      results: { type: Array },
     };
   }
 
@@ -15,6 +16,11 @@ export class ResultsView extends LitElement {
     super();
 
     this.api = new OverpassApi();
+  }
+
+  async connectedCallback() {
+    super.connectedCallback();
+    await this._fetchResults();
   }
 
   render() {
@@ -27,6 +33,14 @@ export class ResultsView extends LitElement {
         <code>radius</code> = <code>${this.radius}</code>
       </p>
     `;
+  }
+
+  async _fetchResults() {
+    try {
+      this.results = await this.api.getNodeByLatLng(this.latitude, this.longitude, this.radius);
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
 
