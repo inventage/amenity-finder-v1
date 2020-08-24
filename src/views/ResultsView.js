@@ -10,7 +10,15 @@ export class ResultsView extends LitElement {
   }
 
   render() {
-    return html`Results…`;
+    return html`
+      <h1>Results</h1>
+      <p>
+        Displaying results</strong> for
+        <code>latitude</code> = <code>${this.latitude}</code>,
+        <code>longitude</code> = <code>${this.longitude}</code> and
+        <code>radius</code> = <code>${this.radius}</code>
+      </p>
+    `;
   }
 }
 
