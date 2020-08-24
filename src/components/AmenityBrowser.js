@@ -14,6 +14,7 @@ export class AmenityBrowser extends LitElement {
 
       // Internal properties
       markers: { type: Array, attribute: false },
+      selectedMarker: { type: Object, attribute: false },
     };
   }
 
@@ -42,6 +43,7 @@ export class AmenityBrowser extends LitElement {
 
     this.amenities = [];
     this.markers = [];
+    this.selectedMarker = null;
   }
 
   updated(changedProperties) {
@@ -54,7 +56,13 @@ export class AmenityBrowser extends LitElement {
 
   render() {
     return html`<div class="amenities">${this._renderAmenities()}</div>
-      <leaflet-map .latitude="${this.latitude}" .longitude="${this.longitude}" .radius="${this.radius}" .markers="${this.markers}"></leaflet-map>`;
+      <leaflet-map
+        .latitude="${this.latitude}"
+        .longitude="${this.longitude}"
+        .radius="${this.radius}"
+        .markers="${this.markers}"
+        .selectedMarker="${this.selectedMarker}"
+      ></leaflet-map>`;
   }
 
   _renderAmenities() {
