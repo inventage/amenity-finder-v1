@@ -1,4 +1,4 @@
-import { html, LitElement } from 'lit-element';
+import { css, html, LitElement } from 'lit-element';
 
 import '@material/mwc-button';
 import '@material/mwc-textfield';
@@ -15,16 +15,43 @@ export class SearchView extends LitElement {
     };
   }
 
+  static get styles() {
+    return css`
+      :host {
+        --amenity-search-form-spacing: 1rem;
+
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      leaflet-map {
+        flex: 1;
+
+        /* stretch to edges */
+        margin-left: calc(var(--amenity-container-padding) * -1);
+        margin-right: calc(var(--amenity-container-padding) * -1);
+        margin-bottom: calc(var(--amenity-container-padding) * -1);
+      }
+
+      .search-form {
+        margin-bottom: 1rem;
+      }
+    `;
+  }
+
   render() {
     return html`
       <h1>Search</h1>
 
-      <mwc-textfield label="Latitude" .value="${this.latitude}" @keyup="${e => (this.latitude = e.target.value)}"></mwc-textfield>
-      <mwc-textfield label="Longitude" .value="${this.longitude}" @keyup="${e => (this.longitude = e.target.value)}"></mwc-textfield>
-      <mwc-textfield label="Radius (m)" .value="${this.radius}" @keyup="${e => (this.radius = e.target.value)}"></mwc-textfield>
+      <div class="search-form">
+        <mwc-textfield label="Latitude" .value="${this.latitude}" @keyup="${e => (this.latitude = e.target.value)}"></mwc-textfield>
+        <mwc-textfield label="Longitude" .value="${this.longitude}" @keyup="${e => (this.longitude = e.target.value)}"></mwc-textfield>
+        <mwc-textfield label="Radius (m)" .value="${this.radius}" @keyup="${e => (this.radius = e.target.value)}"></mwc-textfield>
 
-      <mwc-button outlined label="Locate Me" icon="my_location" @click="${this._handleLocateMeClick}" .disabled="${!canGeolocate()}"></mwc-button>
-      <mwc-button raised label="Search" @click="${this._triggerSearch}" .disabled="${!this._canSearch()}"></mwc-button>
+        <mwc-button outlined label="Locate Me" icon="my_location" @click="${this._handleLocateMeClick}" .disabled="${!canGeolocate()}"></mwc-button>
+        <mwc-button raised label="Search" @click="${this._triggerSearch}" .disabled="${!this._canSearch()}"></mwc-button>
+      </div>
 
       <leaflet-map
         .latitude="${this.latitude}"

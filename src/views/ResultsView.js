@@ -1,4 +1,4 @@
-import { html, LitElement } from 'lit-element';
+import { css, html, LitElement } from 'lit-element';
 
 import { OverpassApi } from '../services/OverpassApi.js';
 
@@ -13,6 +13,27 @@ export class ResultsView extends LitElement {
       radius: { type: Number },
       results: { type: Array },
     };
+  }
+
+  static get styles() {
+    return css`
+      :host {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      amenity-browser {
+        position: relative;
+        overflow-y: auto;
+        flex: 1;
+
+        /* stretch to edges */
+        margin-left: calc(var(--amenity-container-padding) * -1);
+        margin-right: calc(var(--amenity-container-padding) * -1);
+        margin-bottom: calc(var(--amenity-container-padding) * -1);
+      }
+    `;
   }
 
   constructor() {
