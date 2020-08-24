@@ -46,7 +46,9 @@ export class SearchView extends LitElement {
     `;
   }
 
-  async _handleLocateMeClick() {
+  async _handleLocateMeClick(e) {
+    e.target.blur();
+
     try {
       const {
         coords: { latitude, longitude },
