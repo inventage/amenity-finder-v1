@@ -1,5 +1,7 @@
 import { html, LitElement } from 'lit-element';
 
+import { OverpassApi } from '../services/OverpassApi.js';
+
 export class ResultsView extends LitElement {
   static get properties() {
     return {
@@ -7,6 +9,12 @@ export class ResultsView extends LitElement {
       longitude: { type: String },
       radius: { type: Number },
     };
+  }
+
+  constructor() {
+    super();
+
+    this.api = new OverpassApi();
   }
 
   render() {
