@@ -16,12 +16,18 @@ export class SearchView extends LitElement {
     return html`
       <h1>Search</h1>
 
-      <mwc-textfield label="Latitude"></mwc-textfield>
-      <mwc-textfield label="Longitude"></mwc-textfield>
-      <mwc-textfield label="Radius (m)"></mwc-textfield>
+      <mwc-textfield label="Latitude" @keyup="${e => (this.latitude = e.target.value)}"></mwc-textfield>
+      <mwc-textfield label="Longitude" @keyup="${e => (this.longitude = e.target.value)}"></mwc-textfield>
+      <mwc-textfield label="Radius (m)" @keyup="${e => (this.radius = e.target.value)}"></mwc-textfield>
 
       <mwc-button outlined label="Locate Me" icon="my_location"></mwc-button>
       <mwc-button raised label="Search"></mwc-button>
+
+      <p>
+        Latitude: ${this.latitude}<br />
+        Longitude: ${this.longitude}<br />
+        Radius: ${this.radius}
+      </p>
     `;
   }
 }
