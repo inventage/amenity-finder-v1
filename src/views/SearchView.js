@@ -1,4 +1,4 @@
-import { html, LitElement } from 'lit-element';
+import { css, html, LitElement } from 'lit-element';
 
 import '@material/mwc-button';
 import '@material/mwc-textfield';
@@ -11,6 +11,14 @@ export class SearchView extends LitElement {
       longitude: { type: String },
       radius: { type: Number },
     };
+  }
+
+  static get styles() {
+    return css`
+      leaflet-map {
+        height: 50vh;
+      }
+    `;
   }
 
   render() {
