@@ -72,12 +72,25 @@ export class AmenityBrowser extends LitElement {
 
     return html`${this.amenities.map(result => {
       const {
+        id,
         distance,
         tags: { name },
       } = result;
 
-      return html`<amenity-item .name="${name}" .distance="${distance}"></amenity-item>`;
+      return html`<amenity-item
+        .name="${name}"
+        .distance="${distance}"
+        .selected="${this.selectedMarker && this.selectedMarker.id === id}"
+        @click="${() => this._selectMarker(id)}"
+      ></amenity-item>`;
     })}`;
+  }
+
+  _selectMarker(id) {
+    const selectedMarker = this.markers.find(marker => marker.id === id);
+    if (selectedMarker) {
+      this.selectedMarker = selectedMarker;
+    }
   }
 
   _hasAmenities() {
