@@ -51,13 +51,16 @@ export class ResultsView extends LitElement {
 
   render() {
     return html`
-      <h1>Results</h1>
-      <p>
-        Displaying results</strong> for
-        <code>latitude</code> = <code>${this.latitude}</code>,
-        <code>longitude</code> = <code>${this.longitude}</code> and
-        <code>radius</code> = <code>${this.radius}</code>
-      </p>
+      <div>
+        <h1>Results</h1>
+        <p>
+          Displaying results</strong> for
+          <code>latitude</code> = <code>${this.latitude}</code>,
+          <code>longitude</code> = <code>${this.longitude}</code> and
+          <code>radius</code> = <code>${this.radius}</code>
+        </p>
+        <slot></slot>
+      </div>
       <amenity-browser .amenities="${this.results}" .latitude="${this.latitude}" .longitude="${this.longitude}" .radius="${this.radius}"></amenity-browser>
     `;
   }

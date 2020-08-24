@@ -102,7 +102,9 @@ export class AmenityFinder extends LitElement {
           @execute-search="${e => page(`/results/${e.detail.latitude}/${e.detail.longitude}/${e.detail.radius}`)}"
         ></search-view>`;
       case 'results':
-        return html`<results-view .latitude="${this.latitude}" .longitude="${this.longitude}" .radius="${this.radius}"></results-view>`;
+        return html`<results-view .latitude="${this.latitude}" .longitude="${this.longitude}" .radius="${this.radius}">
+          <p><a href="${`/search/${this.latitude}/${this.longitude}/${this.radius}`}">← Back to search</a></p>
+        </results-view>`;
       default:
         return ``;
     }
