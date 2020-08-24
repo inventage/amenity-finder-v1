@@ -16,6 +16,9 @@ export class AmenityFinder extends LitElement {
     return {
       showSidebar: { type: Boolean },
       currentView: { type: String },
+      latitude: { type: String },
+      longitude: { type: String },
+      radius: { type: Number },
     };
   }
 
@@ -35,6 +38,10 @@ export class AmenityFinder extends LitElement {
     super();
     this.showSidebar = false;
     this.currentView = 'home';
+
+    this.latitude = '47.3902';
+    this.longitude = '8.5158';
+    this.radius = 1000;
 
     this._initializeRoutes();
   }
