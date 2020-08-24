@@ -39,11 +39,24 @@ export class SearchView extends LitElement {
       <mwc-textfield label="Longitude" .value="${this.longitude}" @keyup="${e => (this.longitude = e.target.value)}"></mwc-textfield>
       <mwc-textfield label="Radius (m)" .value="${this.radius}" @keyup="${e => (this.radius = e.target.value)}"></mwc-textfield>
 
-      <mwc-button outlined label="Locate Me" icon="my_location"></mwc-button>
+      <mwc-button outlined label="Locate Me" icon="my_location" @click="${this._handleLocateMeClick}" .disabled="${!canGeolocate()}"></mwc-button>
       <mwc-button raised label="Search"></mwc-button>
 
       <leaflet-map .latitude="${this.latitude}" .longitude="${this.longitude}" .radius="${this.radius}"></leaflet-map>
     `;
+  }
+
+  async _handleLocateMeClick() {
+    try {
+      const {
+        coords: { latitude, longitude },
+      } = await detectUserLocation();
+
+      this.latitude = latitude;
+      this.longitude = longitude;
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
 
