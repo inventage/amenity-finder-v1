@@ -4,6 +4,14 @@ import '@material/mwc-button';
 import '@material/mwc-textfield';
 
 export class SearchView extends LitElement {
+  static get properties() {
+    return {
+      latitude: { type: String },
+      longitude: { type: String },
+      radius: { type: Number },
+    };
+  }
+
   render() {
     return html`
       <h1>Search</h1>
