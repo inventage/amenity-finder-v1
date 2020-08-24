@@ -33,9 +33,9 @@ export class SearchView extends LitElement {
     return html`
       <h1>Search</h1>
 
-      <mwc-textfield label="Latitude" @keyup="${e => (this.latitude = e.target.value)}"></mwc-textfield>
-      <mwc-textfield label="Longitude" @keyup="${e => (this.longitude = e.target.value)}"></mwc-textfield>
-      <mwc-textfield label="Radius (m)" @keyup="${e => (this.radius = e.target.value)}"></mwc-textfield>
+      <mwc-textfield label="Latitude" .value="${this.latitude}" @keyup="${e => (this.latitude = e.target.value)}"></mwc-textfield>
+      <mwc-textfield label="Longitude" .value="${this.longitude}" @keyup="${e => (this.longitude = e.target.value)}"></mwc-textfield>
+      <mwc-textfield label="Radius (m)" .value="${this.radius}" @keyup="${e => (this.radius = e.target.value)}"></mwc-textfield>
 
       <mwc-button outlined label="Locate Me" icon="my_location"></mwc-button>
       <mwc-button raised label="Search"></mwc-button>
