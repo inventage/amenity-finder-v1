@@ -16,6 +16,7 @@ export class AmenityFinder extends LitElement {
     return {
       showSidebar: { type: Boolean },
       currentView: { type: String },
+      alreadySearched: { type: Boolean },
       latitude: { type: String },
       longitude: { type: String },
       radius: { type: Number },
@@ -52,6 +53,7 @@ export class AmenityFinder extends LitElement {
     super();
     this.showSidebar = false;
     this.currentView = 'home';
+    this.alreadySearched = false;
 
     this.latitude = '47.3902';
     this.longitude = '8.5158';
@@ -78,7 +80,7 @@ export class AmenityFinder extends LitElement {
                 this.showSidebar = !this.showSidebar;
               }}"
             ></mwc-icon-button>
-            <div slot="title">Title</div>
+            <div slot="title">Amenity Finder</div>
           </mwc-top-app-bar>
           <main>
             ${this._renderCurrentView()}
@@ -109,6 +111,14 @@ export class AmenityFinder extends LitElement {
   _initializeRoutes() {
     page('/', () => {
       this.currentView = 'home';
+    });
+    page('/results', () => {
+      if (this.alreadySearched) {
+        page.redirect(`/results/${this.latitude}/${this.longitude}/${this.radius}`);
+        return;
+      }
+
+      page.redirect('/search');
     });
     page('/results/:lat/:lon/:radius', ctx => {
       this._setSearchParametersFromRouteContext(ctx);
@@ -141,6 +151,7 @@ export class AmenityFinder extends LitElement {
     this.radius = radius;
     this.latitude = lat;
     this.longitude = lon;
+    this.alreadySearched = true;
   }
 }
 
