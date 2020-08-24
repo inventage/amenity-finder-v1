@@ -91,7 +91,8 @@ export class AmenityFinder extends LitElement {
     page('/', () => {
       this.currentView = 'home';
     });
-    page('/results', () => {
+    page('/results/:lat/:lon/:radius', ctx => {
+      this._setSearchParametersFromRouteContext(ctx);
       this.currentView = 'results';
     });
     page('/search', () => {
@@ -107,6 +108,20 @@ export class AmenityFinder extends LitElement {
 
   _closeSidebar() {
     this.showSidebar = false;
+  }
+
+  _setSearchParametersFromRouteContext(ctx) {
+    const {
+      params: { radius, lat, lon },
+    } = ctx;
+
+    if (!radius || !lat || !lon) {
+      return;
+    }
+
+    this.radius = radius;
+    this.latitude = lat;
+    this.longitude = lon;
   }
 }
 
