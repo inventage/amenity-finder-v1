@@ -1,11 +1,13 @@
 import { css, html, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
+import { classMap } from 'lit-html/directives/class-map.js';
 
 export class AmenityItem extends LitElement {
   static get properties() {
     return {
       name: { type: String },
       distance: { type: String },
+      selected: { type: Boolean },
     };
   }
 
@@ -27,6 +29,14 @@ export class AmenityItem extends LitElement {
       .amenity-item > .distance {
         color: #6a7071;
       }
+
+      .amenity-item.-selected {
+        background-color: hsl(0, 0%, 92%);
+      }
+
+      .amenity-item.-selected > .distance {
+        color: #535859;
+      }
     `;
   }
 
@@ -35,6 +45,7 @@ export class AmenityItem extends LitElement {
 
     this.name = '';
     this.distance = '';
+    this.selected = false;
   }
 
   render() {
@@ -42,7 +53,7 @@ export class AmenityItem extends LitElement {
       return nothing;
     }
 
-    return html`<div class="amenity-item">
+    return html`<div class="amenity-item ${classMap({ '-selected': this.selected })}">
       <span class="name">${this.name}</span>
       <span class="distance">${Number.parseFloat(this.distance).toFixed(2)} m</span>
     </div>`;
