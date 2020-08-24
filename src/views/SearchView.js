@@ -23,14 +23,6 @@ export class SearchView extends LitElement {
     `;
   }
 
-  constructor() {
-    super();
-
-    this.latitude = '47.3902';
-    this.longitude = '8.5158';
-    this.radius = 1000;
-  }
-
   render() {
     return html`
       <h1>Search</h1>
