@@ -16,6 +16,7 @@ export class ResultsView extends LitElement {
     super();
 
     this.api = new OverpassApi();
+    this.results = [];
   }
 
   async connectedCallback() {
@@ -32,7 +33,23 @@ export class ResultsView extends LitElement {
         <code>longitude</code> = <code>${this.longitude}</code> and
         <code>radius</code> = <code>${this.radius}</code>
       </p>
+      ${this.results.map(result => this._resultTemplate(result))}
     `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _resultTemplate(result) {
+    const {
+      lat,
+      lon,
+      id,
+      tags: { name },
+    } = result;
+
+    return html`<p>
+      ${id}, ${lat}, ${lon}<br />
+      ${name}
+    </p> `;
   }
 
   async _fetchResults() {
