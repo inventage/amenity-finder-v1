@@ -22,6 +22,12 @@ export class SearchView extends LitElement {
 
       <mwc-button outlined label="Locate Me" icon="my_location"></mwc-button>
       <mwc-button raised label="Search"></mwc-button>
+
+      <p>
+        Latitude: ${this.latitude}<br />
+        Longitude: ${this.longitude}<br />
+        Radius: ${this.radius}
+      </p>
     `;
   }
 }
