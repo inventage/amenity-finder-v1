@@ -12,14 +12,6 @@ export class ResultsView extends LitElement {
       latitude: { type: String },
       longitude: { type: String },
       radius: { type: Number },
-    };
-  }
-
-  static get properties() {
-    return {
-      latitude: { type: String },
-      longitude: { type: String },
-      radius: { type: Number },
       results: { type: Array },
     };
   }
