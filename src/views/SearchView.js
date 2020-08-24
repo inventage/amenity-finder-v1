@@ -56,8 +56,8 @@ export class SearchView extends LitElement {
 
       this.latitude = latitude;
       this.longitude = longitude;
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
     }
   }
 }
