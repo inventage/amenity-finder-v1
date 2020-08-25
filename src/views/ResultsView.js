@@ -43,10 +43,6 @@ export class ResultsView extends Requester(LitElement) {
     super();
 
     this.results = [];
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
     this.api = this.requestInstance('api');
   }
 
