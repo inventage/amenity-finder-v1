@@ -17,7 +17,6 @@ export class OverpassApi {
       (
       node["amenity"="${nodeType}"](around:${radius},${lat},${lng});
       );
-      (._;>;);
       out;
     `;
 
