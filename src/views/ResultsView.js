@@ -6,7 +6,7 @@ import { distanceBetween } from '../utils/geolocation.js';
 import { Requester } from '../mixins/RequesterMixin.js';
 
 /**
- * @mixes LitElement
+ * @extends LitElement
  */
 export class ResultsView extends Requester(LitElement) {
   static get properties() {
@@ -45,9 +45,21 @@ export class ResultsView extends Requester(LitElement) {
     this.results = [];
   }
 
-  async connectedCallback() {
+  connectedCallback() {
     super.connectedCallback();
     this.api = this.requestInstance('api');
+  }
+
+  /**
+   * Implement firstUpdated to perform one-time work after the element’s template has been created.
+   *
+   * @see https://lit-element.polymer-project.org/guide/lifecycle#firstupdated
+   *
+   * @param changedProperties
+   * @return {Promise<void>}
+   */
+  async firstUpdated(changedProperties) {
+    super.firstUpdated(changedProperties);
     await this._fetchResults();
   }
 
