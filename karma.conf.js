@@ -2,6 +2,10 @@
 const { createDefaultConfig } = require('@open-wc/testing-karma');
 const merge = require('deepmerge');
 
+const sabarivka = require('karma-sabarivka-reporter');
+
+const coverage = !!process.argv.find(arg => arg.includes('--coverage'));
+
 module.exports = config => {
   config.set(
     merge(createDefaultConfig(config), {
@@ -18,6 +22,13 @@ module.exports = config => {
         nodeResolve: true,
       },
       // you can overwrite/extend the config further
+      plugins: coverage ? [sabarivka] : [],
+
+      reporters: coverage ? ['sabarivka'] : [],
+
+      coverageReporter: {
+        include: ['src/**/*.js'],
+      },
     })
   );
   return config;
