@@ -1,12 +1,11 @@
 import { css, html, LitElement } from 'lit-element';
 
-import { OverpassApi } from '../services/OverpassApi.js';
-
 import '../components/AmenityBrowser.js';
 import '../components/AmenityItem.js';
 import { distanceBetween } from '../utils/geolocation.js';
+import { Requester } from '../mixins/RequesterMixin.js';
 
-export class ResultsView extends LitElement {
+export class ResultsView extends Requester(LitElement) {
   static get properties() {
     return {
       latitude: { type: String },
@@ -40,12 +39,12 @@ export class ResultsView extends LitElement {
   constructor() {
     super();
 
-    this.api = new OverpassApi();
     this.results = [];
   }
 
   async connectedCallback() {
     super.connectedCallback();
+    this.api = this.requestInstance('api');
     await this._fetchResults();
   }
 
