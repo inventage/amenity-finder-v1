@@ -7,6 +7,7 @@
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "format": "npm run format:eslint && npm run format:prettier",
     "build": "rimraf dist && rollup -c rollup.config.js",
+    "postbuild": "cp dist/index.html dist/200.html",
     "start:build": "npm run build && es-dev-server --root-dir dist --app-index index.html --open --compatibility none",
     "start": "es-dev-server --app-index index.html --node-resolve --open --watch",
     "deploy": "surge --domain vivacious-trains.surge.sh dist",
