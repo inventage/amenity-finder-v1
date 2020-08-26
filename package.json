@@ -64,7 +64,7 @@
   "author": "amenity-finder",
   "license": "MIT",
   "dependencies": {
-    "@inventage/leaflet-map": "^0.4.0",
+    "@inventage/leaflet-map": "^0.5.0",
     "@material/mwc-button": "^0.18.0",
     "@material/mwc-drawer": "^0.18.0",
     "@material/mwc-icon-button": "^0.18.0",

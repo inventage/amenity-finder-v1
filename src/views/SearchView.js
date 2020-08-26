@@ -2,7 +2,7 @@ import { css, html, LitElement } from 'lit-element';
 
 import '@material/mwc-button';
 import '@material/mwc-textfield';
-import '@inventage/leaflet-map/dist/leaflet-map.js';
+import '@inventage/leaflet-map';
 
 import { canGeolocate, detectUserLocation } from '../utils/geolocation.js';
 
