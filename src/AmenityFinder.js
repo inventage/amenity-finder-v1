@@ -7,7 +7,6 @@ import '@material/mwc-icon-button';
 import '@material/mwc-list/mwc-list.js';
 import '@material/mwc-list/mwc-list-item.js';
 
-import './views/AboutView.js';
 import './views/HomeView.js';
 import './views/ResultsView.js';
 import './views/SearchView.js';
@@ -48,7 +47,6 @@ export class AmenityFinder extends LitElement {
           <mwc-list-item @click="${() => this._navigateToUrl('/')}">Home</mwc-list-item>
           <mwc-list-item @click="${() => this._navigateToUrl('/search')}">Search</mwc-list-item>
           <mwc-list-item @click="${() => this._navigateToUrl('/results')}">Results</mwc-list-item>
-          <mwc-list-item @click="${() => this._navigateToUrl('/about')}">About</mwc-list-item>
         </mwc-list>
         <div slot="appContent">
           <mwc-top-app-bar>
