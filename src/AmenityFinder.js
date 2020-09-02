@@ -75,8 +75,6 @@ export class AmenityFinder extends LitElement {
         return html`<search-view></search-view>`;
       case 'results':
         return html`<results-view></results-view>`;
-      case 'about':
-        return html`<about-view></about-view>`;
       default:
         return ``;
     }
@@ -85,9 +83,6 @@ export class AmenityFinder extends LitElement {
   _initializeRoutes() {
     page('/', () => {
       this.currentView = 'home';
-    });
-    page('/about', () => {
-      this.currentView = 'about';
     });
     page('/results', () => {
       this.currentView = 'results';
