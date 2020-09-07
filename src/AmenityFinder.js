@@ -10,8 +10,9 @@ import '@material/mwc-list/mwc-list-item.js';
 import { lazyLoad } from './directives/lazyLoadDirective.js';
 import { Provider } from './mixins/ProviderMixin.js';
 import { OverpassApi } from './services/OverpassApi.js';
+import { PendingContainer } from './mixins/PendingContainerMixin.js';
 
-export class AmenityFinder extends Provider(LitElement) {
+export class AmenityFinder extends PendingContainer(Provider(LitElement)) {
   static get properties() {
     return {
       showSidebar: { type: Boolean },
