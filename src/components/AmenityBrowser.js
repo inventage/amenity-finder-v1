@@ -62,6 +62,17 @@ export class AmenityBrowser extends LitElement {
         .radius="${this.radius}"
         .markers="${this.markers}"
         .selectedMarker="${this.selectedMarker}"
+        @tiles-loading="${e => {
+          this.dispatchEvent(
+            new CustomEvent('pending-state', {
+              composed: true,
+              bubbles: true,
+              detail: {
+                promise: e.detail.promise,
+              },
+            })
+          );
+        }}"
       ></leaflet-map>`;
   }
 
