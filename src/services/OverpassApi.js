@@ -11,7 +11,7 @@ export class OverpassApi {
     this.baseUrl = baseUrl;
   }
 
-  async getNodeByLatLng(lat, lng, radius, nodeType = 'restaurant') {
+  getNodeByLatLng(lat, lng, radius, nodeType = 'restaurant') {
     const query = `
       [out:json];
       (
@@ -23,14 +23,15 @@ export class OverpassApi {
     const targetUrl = new URL(`${this.baseUrl}/interpreter`);
     targetUrl.searchParams.append('data', query);
 
-    const response = await fetch(targetUrl.href);
-    const jsonResponse = await response.json();
+    return fetch(targetUrl.href)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        const { elements } = jsonResponse;
+        if (!elements) {
+          return Promise.resolve([]);
+        }
 
-    const { elements } = jsonResponse;
-    if (!elements) {
-      return [];
-    }
-
-    return elements;
+        return Promise.resolve(elements);
+      });
   }
 }

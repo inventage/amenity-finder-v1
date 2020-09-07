@@ -76,19 +76,27 @@ export class ResultsView extends Requester(LitElement) {
   }
 
   async _fetchResults() {
-    try {
-      const results = await this.api.getNodeByLatLng(this.latitude, this.longitude, this.radius);
-      this.results = results
-        .map(result => {
-          return {
-            ...result,
-            distance: distanceBetween([this.latitude, this.longitude], [result.lat, result.lon]),
-          };
-        })
-        .sort((a, b) => a.distance - b.distance);
-    } catch (err) {
-      console.error(err);
-    }
+    const resultsPromise = this.api.getNodeByLatLng(this.latitude, this.longitude, this.radius);
+    this.dispatchEvent(
+      new CustomEvent('pending-state', {
+        composed: true,
+        bubbles: true,
+        detail: { promise: resultsPromise },
+      })
+    );
+
+    resultsPromise
+      .then(results => {
+        this.results = results
+          .map(result => {
+            return {
+              ...result,
+              distance: distanceBetween([this.latitude, this.longitude], [result.lat, result.lon]),
+            };
+          })
+          .sort((a, b) => a.distance - b.distance);
+      })
+      .catch(err => console.error(err));
   }
 }
 
