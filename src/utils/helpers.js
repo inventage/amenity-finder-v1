@@ -14,3 +14,17 @@ export const formatDistance = (distance, fractionDigits = 2, locale = 'de-CH') =
 
   return formatter.format(isKm ? normalizedDistance / 1000 : normalizedDistance);
 };
+
+/**
+ * A function resolving a promise after a given time.
+ * This can be used in async functions to delay execution:
+ *
+ * async func() {
+ *   await delay(1000);
+ *   …
+ * }
+ *
+ * @param time
+ * @returns {Promise<void>}
+ */
+export const delay = time => new Promise(r => setTimeout(r, time));
