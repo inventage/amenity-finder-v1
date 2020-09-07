@@ -115,7 +115,7 @@ export class AmenityFinder extends PendingContainer(Provider(LitElement), 250) {
             .latitude="${this.latitude}"
             .longitude="${this.longitude}"
             .radius="${this.radius}"
-            @execute-search="${e => page(`/results/${e.detail.latitude}/${e.detail.longitude}/${e.detail.radius}`)}"
+            @execute-search="${e => this._onExecuteSearch(e)}"
           ></search-view>`
         );
       case 'results':
@@ -184,6 +184,11 @@ export class AmenityFinder extends PendingContainer(Provider(LitElement), 250) {
 
   _closeSidebar() {
     this.showSidebar = false;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _onExecuteSearch(e) {
+    page(`/results/${e.detail.latitude}/${e.detail.longitude}/${e.detail.radius}`);
   }
 
   _setSearchParametersFromRouteContext(ctx) {
