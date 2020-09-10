@@ -1,6 +1,16 @@
 import LatLon from 'geodesy/latlon-ellipsoidal-vincenty';
 
 /**
+ * Simple regex pattern (as string, so we can use it in the Constraint Validation API) for latitude / longitude.
+ *
+ * @see https://regex101.com/r/eDCQuX/1/
+ *
+ * @type {string}
+ */
+// prettier-ignore
+const latLongRegexPatternString = '^-?\\d+(\\.\\d+)?$';
+
+/**
  * Returns true if the current agent supports geolocation.
  *
  * @returns {boolean}
@@ -47,4 +57,4 @@ const distanceBetween = ([lat1, lon1], [lat2, lng2]) => {
   return p1.distanceTo(p2);
 };
 
-export { canGeolocate, detectUserLocation, distanceBetween };
+export { canGeolocate, detectUserLocation, distanceBetween, latLongRegexPatternString };

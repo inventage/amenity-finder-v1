@@ -26,6 +26,7 @@
     "@inventage/leaflet-map": "^0.7.0",
     "@material/mwc-button": "^0.18.0",
     "@material/mwc-drawer": "^0.18.0",
+    "@material/mwc-icon": "^0.18.0",
     "@material/mwc-icon-button": "^0.18.0",
     "@material/mwc-linear-progress": "^0.18.0",
     "@material/mwc-list": "^0.18.0",
