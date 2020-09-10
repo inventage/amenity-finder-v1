@@ -56,8 +56,9 @@ export class SearchView extends LitElement {
             ></mwc-textfield>
             <mwc-textfield
               class="field"
-              label="Radius (m)"
+              label="Radius"
               type="number"
+              suffix="m"
               max="${MAX_SEARCH_RADIUS}"
               .autoValidate
               .validateOnInitialRender
