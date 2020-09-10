@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="200" src="./assets/img/amenity-finder-logo.png"></img>
+</p>
+
 ## Amenity Finder
 
 [![made with open-wc](https://img.shields.io/badge/made%20with-open--wc-%23217ff9?style=flat-square)](https://open-wc.org)
