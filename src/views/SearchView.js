@@ -37,6 +37,7 @@ export class SearchView extends LitElement {
             <mwc-textfield
               class="field"
               label="Latitude"
+              suffix="°"
               pattern="${latLongRegexPatternString}"
               autoValidate
               .validateOnInitialRender
@@ -47,6 +48,7 @@ export class SearchView extends LitElement {
             <mwc-textfield
               class="field"
               label="Longitude"
+              suffix="°"
               pattern="${latLongRegexPatternString}"
               .autoValidate
               .validateOnInitialRender
