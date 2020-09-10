@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "amenity-finder",
   "repository": "https://github.com/inventage/amenity-finder",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "rimraf dist && rollup -c rollup.config.js",
     "postbuild": "cp dist/index.html dist/200.html",
