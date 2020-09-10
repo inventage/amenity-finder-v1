@@ -15,6 +15,9 @@ import { PendingContainer } from './mixins/PendingContainerMixin.js';
 
 export const MAX_SEARCH_RADIUS = 10000;
 
+/**
+ * @mixes LitElement
+ */
 export class AmenityFinder extends PendingContainer(Provider(LitElement), 250) {
   static get properties() {
     return {

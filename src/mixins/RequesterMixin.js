@@ -2,7 +2,6 @@
  * Requester can request instances by a given key.
  *
  * @param Base
- * @return {{new(): {requestInstance(*): *}, prototype: {requestInstance(*): *}}}
  * @constructor
  */
 export const Requester = Base =>

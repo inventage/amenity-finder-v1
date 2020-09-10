@@ -26,10 +26,16 @@ export const PendingContainer = (base, delayPromise = 0) =>
       this.addEventListener('pending-state', async e => {
         this.__hasPendingChildren = true;
         this.__pendingCount += 1;
-        await e.detail.promise;
-        await delay(delayPromise); // Optional delay
-        this.__pendingCount -= 1;
-        this.__hasPendingChildren = this.__pendingCount !== 0;
+
+        try {
+          await e.detail.promise;
+          await delay(delayPromise); // Optional delay
+        } catch (err) {
+          console.error(`Error in pending-state promise: ${err}`);
+        } finally {
+          this.__pendingCount -= 1;
+          this.__hasPendingChildren = this.__pendingCount !== 0;
+        }
       });
     }
   };

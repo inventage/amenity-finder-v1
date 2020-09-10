@@ -7,6 +7,9 @@ import { distanceBetween } from '../utils/geolocation.js';
 import { Requester } from '../mixins/RequesterMixin.js';
 import { sharedStyles } from '../common/globalStyles.js';
 
+/**
+ * @mixes LitElement
+ */
 export class ResultsView extends Requester(LitElement) {
   static get properties() {
     return {

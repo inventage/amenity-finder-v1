@@ -54,6 +54,7 @@ const distanceBetween = ([lat1, lon1], [lat2, lng2]) => {
   const p1 = new LatLon(lat1, lon1);
   const p2 = new LatLon(lat2, lng2);
 
+  // noinspection JSCheckFunctionSignatures
   return p1.distanceTo(p2);
 };
 
