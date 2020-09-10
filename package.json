@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "amenity-finder",
   "description": "An example application built with web components only",
   "license": "MIT",
