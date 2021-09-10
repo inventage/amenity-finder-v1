@@ -1,3 +1,5 @@
+**NOTICE**: This is the old repository and uses [LitElement 2.x](https://lit-element.polymer-project.org/), not the [new Lit version](https://lit.dev/).
+
 <p align="center">
   <img width="200" src="./assets/img/amenity-finder-logo.png"></img>
 </p>
