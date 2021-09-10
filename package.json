@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rimraf dist && rollup -c rollup.config.js",
     "postbuild": "cp dist/index.html dist/200.html",
-    "deploy": "surge --domain https://amenity-finder.surge.sh dist",
+    "deploy": "surge --domain https://amenity-finder-v1.surge.sh dist",
     "format": "run-p format:*",
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
     "format:prettier": "prettier \"**/*.js\" --write --ignore-path .gitignore",
